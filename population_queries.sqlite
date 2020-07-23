@@ -1,0 +1,43 @@
+-- This is the first query:
+-- Years covered by the dataset: 2000-2010
+SELECT DISTINCT year from population_years;
+
+-- Add your additional queries below:
+
+--Largest population size for Gabon 
+SELECT *
+FROM population_years
+WHERE country = 'Gabon'
+  ORDER BY population DESC
+  LIMIT  1;
+
+--10 Lowest Population countries in 2005
+SELECT *
+FROM population_years
+WHERE year = '2005'
+  ORDER BY population
+  LIMIT 10;
+
+--Distinct countries w/ population > 100 million in 2010
+SELECT DISTINCT country 
+FROM population_years
+WHERE year = '2010'
+  AND population > 100;
+
+--How many countries have 'Islands' in name
+SELECT DISTINCT country
+FROM population_years
+WHERE country LIKE '%Islands%';
+
+--Difference in population between 2000 and 2010
+SELECT *
+FROM population_years
+WHERE country = 'Indonesia'
+AND year = '2000';
+
+SELECT *
+FROM population_years
+WHERE country = 'Indonesia'
+AND year = '2010';
+
+--Difference = 242.96834 - 214.67661 = 28.29173 million more people in 2010
